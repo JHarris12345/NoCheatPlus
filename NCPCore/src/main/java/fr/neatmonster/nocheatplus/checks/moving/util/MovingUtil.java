@@ -16,6 +16,8 @@ package fr.neatmonster.nocheatplus.checks.moving.util;
 
 import java.util.UUID;
 
+import fr.neatmonster.nocheatplus.config.ConfPaths;
+import fr.neatmonster.nocheatplus.config.DefaultConfig;
 import org.bukkit.Chunk;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -93,10 +95,12 @@ public class MovingUtil {
         final boolean toOnground = toLocation != null && toLocation.getWorld() != null && toLocation.isOnGround();
         // (Full activation check - use permission caching for performance rather.)
 
-        return  
+        return
                 // Sf is active (duh..)
-                pData.isCheckActive(CheckType.MOVING_SURVIVALFLY, player) 
-                // Spectator is handled by Cf
+                pData.isCheckActive(CheckType.MOVING_SURVIVALFLY, player)
+                        // Check if the player is a bedrock player
+                        && !player.getUniqueId().toString().startsWith("00000000-0000-0000")
+                        // Spectator is handled by Cf
                 && gameMode != BridgeMisc.GAME_MODE_SPECTATOR
                 // Creative or ignoreCreative is off/flying - let Cf handle those.
                 && (cc.ignoreCreative || gameMode != GameMode.CREATIVE) && !player.isFlying()

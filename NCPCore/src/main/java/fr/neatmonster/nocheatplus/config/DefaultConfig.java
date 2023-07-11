@@ -533,6 +533,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.MOVING_PASSABLE_UNTRACKED_CMD_PREFIXES, Arrays.asList("sethome", "home set", "setwarp", "warp set", "setback", "set back", "back set", "warp", "home", "tp", "tpa", "tpask", "tpyes", "tphere"), 1154);
         // SurvivalFly
         set(ConfPaths.MOVING_SURVIVALFLY_CHECK, "default", 785);
+        set(ConfPaths.MOVING_SURVIVALFLY_CHECK_BEDROCK, false, 785);
         set(ConfPaths.MOVING_SURVIVALFLY_STEPHEIGHT, "default", 785);
         set(ConfPaths.MOVING_SURVIVALFLY_EXTENDED_VACC, true, 785);
         set(ConfPaths.MOVING_SURVIVALFLY_EXTENDED_HACC, true, 1154);
